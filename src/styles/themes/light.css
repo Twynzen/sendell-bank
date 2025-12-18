@@ -1,0 +1,64 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   SENDELLBANK LIGHT THEME
+   Default theme with bright, professional appearance
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+[data-theme="light"],
+:root {
+  /* Surface Colors */
+  --lb-color-background: #f5f7fa;
+  --lb-color-surface: #ffffff;
+  --lb-color-surface-variant: #f0f4f8;
+  --lb-color-surface-elevated: #ffffff;
+
+  /* Text Colors */
+  --lb-color-text-primary: #1a1a2e;
+  --lb-color-text-secondary: #4a5568;
+  --lb-color-text-tertiary: #718096;
+  --lb-color-text-disabled: #a0aec0;
+  --lb-color-text-inverse: #ffffff;
+
+  /* Border Colors */
+  --lb-color-border: #e2e8f0;
+  --lb-color-border-light: #edf2f7;
+  --lb-color-border-dark: #cbd5e0;
+
+  /* Interactive States */
+  --lb-color-hover: rgba(25, 118, 210, 0.08);
+  --lb-color-active: rgba(25, 118, 210, 0.12);
+  --lb-color-selected: rgba(25, 118, 210, 0.16);
+
+  /* Shadows for Light Theme */
+  --lb-shadow-card: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --lb-shadow-dropdown: 0 4px 16px rgba(0, 0, 0, 0.12);
+  --lb-shadow-modal: 0 16px 48px rgba(0, 0, 0, 0.16);
+
+  /* Gradients */
+  --lb-gradient-primary: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+  --lb-gradient-header: linear-gradient(135deg, #0d47a1 0%, #1565c0 100%);
+  --lb-gradient-card: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+
+  /* Input specific */
+  --lb-input-background: #ffffff;
+  --lb-input-border: #d1d5db;
+  --lb-input-placeholder: #9ca3af;
+
+  /* Card specific */
+  --lb-card-background: #ffffff;
+  --lb-card-border: #e5e7eb;
+
+  /* Sidebar specific */
+  --lb-sidebar-background: #ffffff;
+  --lb-sidebar-item-hover: #f3f4f6;
+  --lb-sidebar-item-active: #e0f2fe;
+
+  /* Table specific */
+  --lb-table-header-background: #f9fafb;
+  --lb-table-row-hover: #f3f4f6;
+  --lb-table-border: #e5e7eb;
+
+  /* Scrollbar */
+  --lb-scrollbar-track: #f1f1f1;
+  --lb-scrollbar-thumb: #c1c1c1;
+  --lb-scrollbar-thumb-hover: #a8a8a8;
+}

@@ -1,0 +1,189 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   SENDELLBANK DESIGN TOKENS
+   Comprehensive CSS Custom Properties for consistent theming
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ═══════════════════════════════════════════════════════════
+     COLOR TOKENS - Primary Palette (Bank Blue)
+     ═══════════════════════════════════════════════════════════ */
+  --lb-color-primary-50: #e3f2fd;
+  --lb-color-primary-100: #bbdefb;
+  --lb-color-primary-200: #90caf9;
+  --lb-color-primary-300: #64b5f6;
+  --lb-color-primary-400: #42a5f5;
+  --lb-color-primary-500: #1976d2;
+  --lb-color-primary-600: #1565c0;
+  --lb-color-primary-700: #0d47a1;
+  --lb-color-primary-800: #0a3d91;
+  --lb-color-primary-900: #072f70;
+
+  /* Secondary Palette (Accent) */
+  --lb-color-secondary-50: #e8f5e9;
+  --lb-color-secondary-100: #c8e6c9;
+  --lb-color-secondary-500: #4caf50;
+  --lb-color-secondary-600: #43a047;
+  --lb-color-secondary-700: #388e3c;
+
+  /* ═══════════════════════════════════════════════════════════
+     SEMANTIC COLORS
+     ═══════════════════════════════════════════════════════════ */
+  --lb-color-success: #2e7d32;
+  --lb-color-success-light: #e8f5e9;
+  --lb-color-success-dark: #1b5e20;
+
+  --lb-color-warning: #ed6c02;
+  --lb-color-warning-light: #fff3e0;
+  --lb-color-warning-dark: #e65100;
+
+  --lb-color-error: #d32f2f;
+  --lb-color-error-light: #ffebee;
+  --lb-color-error-dark: #b71c1c;
+
+  --lb-color-info: #0288d1;
+  --lb-color-info-light: #e1f5fe;
+  --lb-color-info-dark: #01579b;
+
+  /* ═══════════════════════════════════════════════════════════
+     NEUTRAL PALETTE
+     ═══════════════════════════════════════════════════════════ */
+  --lb-color-neutral-0: #ffffff;
+  --lb-color-neutral-50: #fafafa;
+  --lb-color-neutral-100: #f5f5f5;
+  --lb-color-neutral-200: #eeeeee;
+  --lb-color-neutral-300: #e0e0e0;
+  --lb-color-neutral-400: #bdbdbd;
+  --lb-color-neutral-500: #9e9e9e;
+  --lb-color-neutral-600: #757575;
+  --lb-color-neutral-700: #616161;
+  --lb-color-neutral-800: #424242;
+  --lb-color-neutral-900: #212121;
+
+  /* Background Colors */
+  --lb-color-background: var(--lb-color-neutral-50);
+  --lb-color-surface: var(--lb-color-neutral-0);
+  --lb-color-surface-variant: var(--lb-color-neutral-100);
+
+  /* Text Colors */
+  --lb-color-text-primary: var(--lb-color-neutral-900);
+  --lb-color-text-secondary: var(--lb-color-neutral-700);
+  --lb-color-text-disabled: var(--lb-color-neutral-400);
+  --lb-color-text-inverse: var(--lb-color-neutral-0);
+
+  /* Border Colors */
+  --lb-color-border: var(--lb-color-neutral-300);
+  --lb-color-border-light: var(--lb-color-neutral-200);
+  --lb-color-border-focus: var(--lb-color-primary-500);
+
+  /* ═══════════════════════════════════════════════════════════
+     TYPOGRAPHY TOKENS
+     ═══════════════════════════════════════════════════════════ */
+  --lb-font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --lb-font-family-mono: 'Fira Code', 'Consolas', monospace;
+
+  /* Font Sizes */
+  --lb-font-size-xs: 0.75rem;     /* 12px */
+  --lb-font-size-sm: 0.875rem;    /* 14px */
+  --lb-font-size-md: 1rem;        /* 16px */
+  --lb-font-size-lg: 1.125rem;    /* 18px */
+  --lb-font-size-xl: 1.25rem;     /* 20px */
+  --lb-font-size-2xl: 1.5rem;     /* 24px */
+  --lb-font-size-3xl: 1.875rem;   /* 30px */
+  --lb-font-size-4xl: 2.25rem;    /* 36px */
+  --lb-font-size-5xl: 3rem;       /* 48px */
+
+  /* Font Weights */
+  --lb-font-weight-normal: 400;
+  --lb-font-weight-medium: 500;
+  --lb-font-weight-semibold: 600;
+  --lb-font-weight-bold: 700;
+
+  /* Line Heights */
+  --lb-line-height-tight: 1.25;
+  --lb-line-height-normal: 1.5;
+  --lb-line-height-relaxed: 1.75;
+
+  /* Letter Spacing */
+  --lb-letter-spacing-tight: -0.025em;
+  --lb-letter-spacing-normal: 0;
+  --lb-letter-spacing-wide: 0.025em;
+
+  /* ═══════════════════════════════════════════════════════════
+     SPACING TOKENS (4px base unit)
+     ═══════════════════════════════════════════════════════════ */
+  --lb-space-0: 0;
+  --lb-space-1: 0.25rem;    /* 4px */
+  --lb-space-2: 0.5rem;     /* 8px */
+  --lb-space-3: 0.75rem;    /* 12px */
+  --lb-space-4: 1rem;       /* 16px */
+  --lb-space-5: 1.25rem;    /* 20px */
+  --lb-space-6: 1.5rem;     /* 24px */
+  --lb-space-8: 2rem;       /* 32px */
+  --lb-space-10: 2.5rem;    /* 40px */
+  --lb-space-12: 3rem;      /* 48px */
+  --lb-space-16: 4rem;      /* 64px */
+  --lb-space-20: 5rem;      /* 80px */
+  --lb-space-24: 6rem;      /* 96px */
+
+  /* ═══════════════════════════════════════════════════════════
+     BORDER RADIUS TOKENS
+     ═══════════════════════════════════════════════════════════ */
+  --lb-radius-none: 0;
+  --lb-radius-sm: 4px;
+  --lb-radius-md: 8px;
+  --lb-radius-lg: 12px;
+  --lb-radius-xl: 16px;
+  --lb-radius-2xl: 24px;
+  --lb-radius-full: 9999px;
+
+  /* ═══════════════════════════════════════════════════════════
+     SHADOW TOKENS
+     ═══════════════════════════════════════════════════════════ */
+  --lb-shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --lb-shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  --lb-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --lb-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --lb-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  --lb-shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --lb-shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+
+  /* Focus Ring */
+  --lb-ring-offset: 2px;
+  --lb-ring-width: 3px;
+  --lb-ring-color: rgba(25, 118, 210, 0.4);
+
+  /* ═══════════════════════════════════════════════════════════
+     ANIMATION TOKENS
+     ═══════════════════════════════════════════════════════════ */
+  --lb-transition-fast: 150ms ease;
+  --lb-transition-normal: 250ms ease;
+  --lb-transition-slow: 350ms ease;
+  --lb-transition-slower: 500ms ease;
+
+  --lb-ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --lb-ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --lb-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --lb-ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  /* ═══════════════════════════════════════════════════════════
+     Z-INDEX TOKENS
+     ═══════════════════════════════════════════════════════════ */
+  --lb-z-dropdown: 1000;
+  --lb-z-sticky: 1020;
+  --lb-z-fixed: 1030;
+  --lb-z-modal-backdrop: 1040;
+  --lb-z-modal: 1050;
+  --lb-z-popover: 1060;
+  --lb-z-tooltip: 1070;
+  --lb-z-toast: 1080;
+
+  /* ═══════════════════════════════════════════════════════════
+     LAYOUT TOKENS
+     ═══════════════════════════════════════════════════════════ */
+  --lb-sidebar-width: 280px;
+  --lb-sidebar-collapsed-width: 72px;
+  --lb-header-height: 64px;
+  --lb-footer-height: 56px;
+  --lb-content-max-width: 1200px;
+  --lb-card-max-width: 480px;
+}

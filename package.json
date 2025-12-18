@@ -1,0 +1,53 @@
+{
+  "name": "sendell-bank",
+  "version": "1.0.0",
+  "description": "SendellBank - Digital Banking System",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "api": "node server/server.js",
+    "dev:all": "concurrently \"npm run dev\" \"npm run api\"",
+    "start": "npm run dev:all",
+    "test": "web-test-runner --coverage",
+    "test:watch": "web-test-runner --watch",
+    "test:e2e": "playwright test",
+    "lint": "eslint src --ext .ts",
+    "lint:fix": "eslint src --ext .ts --fix",
+    "format": "prettier --write \"src/**/*.{ts,css}\"",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "dependencies": {
+    "lit": "^3.1.0",
+    "@lit/context": "^1.1.0",
+    "@lit/task": "^1.0.0",
+    "@lit/localize": "^0.12.0",
+    "@vaadin/router": "^1.7.5",
+    "idb": "^8.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.0",
+    "vite": "^5.0.0",
+    "@open-wc/testing": "^4.0.0",
+    "@web/test-runner": "^0.18.0",
+    "@web/test-runner-playwright": "^0.11.0",
+    "@playwright/test": "^1.40.0",
+    "json-server": "^0.17.4",
+    "jsonwebtoken": "^9.0.2",
+    "concurrently": "^8.2.0",
+    "eslint": "^8.56.0",
+    "@typescript-eslint/eslint-plugin": "^6.18.0",
+    "@typescript-eslint/parser": "^6.18.0",
+    "eslint-plugin-lit": "^1.11.0",
+    "prettier": "^3.2.0",
+    "storybook": "^8.0.0",
+    "@storybook/web-components": "^8.0.0",
+    "@storybook/web-components-vite": "^8.0.0",
+    "workbox-cli": "^7.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

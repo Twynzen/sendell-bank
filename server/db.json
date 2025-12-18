@@ -1,0 +1,470 @@
+{
+  "users": [
+    {
+      "id": "usr_001",
+      "documentType": "DNI",
+      "documentNumber": "12345678A",
+      "email": "carlos.mendez@email.com",
+      "phone": "+34 612 345 678",
+      "firstName": "Carlos",
+      "lastName": "Méndez García",
+      "avatar": null,
+      "role": "customer",
+      "status": "active",
+      "preferences": {
+        "language": "es",
+        "notifications": {
+          "email": true,
+          "push": true,
+          "sms": true
+        },
+        "twoFactorEnabled": true
+      },
+      "createdAt": "2023-01-15T10:00:00Z",
+      "lastLogin": "2024-12-18T08:30:00Z"
+    },
+    {
+      "id": "usr_002",
+      "documentType": "DNI",
+      "documentNumber": "87654321B",
+      "email": "maria.lopez@email.com",
+      "phone": "+34 623 456 789",
+      "firstName": "María",
+      "lastName": "López Fernández",
+      "avatar": null,
+      "role": "customer",
+      "status": "active",
+      "preferences": {
+        "language": "es",
+        "notifications": {
+          "email": true,
+          "push": false,
+          "sms": true
+        },
+        "twoFactorEnabled": false
+      },
+      "createdAt": "2023-03-20T14:30:00Z",
+      "lastLogin": "2024-12-17T16:45:00Z"
+    }
+  ],
+  "accounts": [
+    {
+      "id": "acc_001",
+      "userId": "usr_001",
+      "type": "checking",
+      "number": "ES91 2100 0418 4502 0005 1332",
+      "alias": "Cuenta Principal",
+      "currency": "EUR",
+      "balance": 15420.75,
+      "availableBalance": 15220.75,
+      "status": "active",
+      "createdAt": "2023-01-15T10:00:00Z"
+    },
+    {
+      "id": "acc_002",
+      "userId": "usr_001",
+      "type": "savings",
+      "number": "ES76 2100 0418 4102 0005 1333",
+      "alias": "Ahorro Vacaciones",
+      "currency": "EUR",
+      "balance": 8750.00,
+      "availableBalance": 8750.00,
+      "status": "active",
+      "createdAt": "2023-02-01T09:00:00Z"
+    },
+    {
+      "id": "acc_003",
+      "userId": "usr_001",
+      "type": "savings",
+      "number": "ES45 2100 0418 4102 0005 1334",
+      "alias": "Fondo Emergencia",
+      "currency": "EUR",
+      "balance": 5000.00,
+      "availableBalance": 5000.00,
+      "status": "active",
+      "createdAt": "2023-06-15T11:30:00Z"
+    },
+    {
+      "id": "acc_004",
+      "userId": "usr_002",
+      "type": "checking",
+      "number": "ES82 2100 0418 4502 0005 2001",
+      "alias": "Cuenta Nómina",
+      "currency": "EUR",
+      "balance": 3250.40,
+      "availableBalance": 3250.40,
+      "status": "active",
+      "createdAt": "2023-03-20T14:30:00Z"
+    }
+  ],
+  "transactions": [
+    {
+      "id": "txn_001",
+      "accountId": "acc_001",
+      "type": "income",
+      "category": "salary",
+      "amount": 2850.00,
+      "currency": "EUR",
+      "description": "Nómina Diciembre 2024",
+      "reference": "NOM-2024-12",
+      "counterparty": {
+        "name": "Tech Solutions S.L.",
+        "account": "ES12 0049 1234 5678 9012 3456"
+      },
+      "status": "completed",
+      "date": "2024-12-15T09:00:00Z",
+      "valueDate": "2024-12-15T09:00:00Z"
+    },
+    {
+      "id": "txn_002",
+      "accountId": "acc_001",
+      "type": "expense",
+      "category": "utilities",
+      "amount": -85.50,
+      "currency": "EUR",
+      "description": "Factura Electricidad",
+      "reference": "ELEC-2024-12",
+      "counterparty": {
+        "name": "Energía Verde S.A.",
+        "account": "ES98 0182 1234 5678 9012 3456"
+      },
+      "status": "completed",
+      "date": "2024-12-14T08:30:00Z",
+      "valueDate": "2024-12-14T08:30:00Z"
+    },
+    {
+      "id": "txn_003",
+      "accountId": "acc_001",
+      "type": "expense",
+      "category": "shopping",
+      "amount": -156.80,
+      "currency": "EUR",
+      "description": "Compra Supermercado",
+      "reference": "POS-SUPER-001",
+      "counterparty": {
+        "name": "Supermercados Central"
+      },
+      "status": "completed",
+      "date": "2024-12-13T19:45:00Z",
+      "valueDate": "2024-12-13T19:45:00Z"
+    },
+    {
+      "id": "txn_004",
+      "accountId": "acc_001",
+      "type": "expense",
+      "category": "entertainment",
+      "amount": -45.00,
+      "currency": "EUR",
+      "description": "Suscripción Streaming",
+      "reference": "SUB-STREAM-12",
+      "counterparty": {
+        "name": "StreamPlus Services"
+      },
+      "status": "completed",
+      "date": "2024-12-10T00:00:00Z",
+      "valueDate": "2024-12-10T00:00:00Z"
+    },
+    {
+      "id": "txn_005",
+      "accountId": "acc_001",
+      "type": "transfer",
+      "category": "transfer",
+      "amount": -500.00,
+      "currency": "EUR",
+      "description": "Transferencia a Ahorro",
+      "reference": "TRF-INT-001",
+      "counterparty": {
+        "name": "Ahorro Vacaciones",
+        "account": "ES76 2100 0418 4102 0005 1333"
+      },
+      "status": "completed",
+      "date": "2024-12-08T14:20:00Z",
+      "valueDate": "2024-12-08T14:20:00Z"
+    },
+    {
+      "id": "txn_006",
+      "accountId": "acc_002",
+      "type": "transfer",
+      "category": "transfer",
+      "amount": 500.00,
+      "currency": "EUR",
+      "description": "Transferencia desde Principal",
+      "reference": "TRF-INT-001",
+      "counterparty": {
+        "name": "Cuenta Principal",
+        "account": "ES91 2100 0418 4502 0005 1332"
+      },
+      "status": "completed",
+      "date": "2024-12-08T14:20:00Z",
+      "valueDate": "2024-12-08T14:20:00Z"
+    },
+    {
+      "id": "txn_007",
+      "accountId": "acc_001",
+      "type": "expense",
+      "category": "transport",
+      "amount": -65.00,
+      "currency": "EUR",
+      "description": "Gasolina",
+      "reference": "POS-GAS-001",
+      "counterparty": {
+        "name": "Estación El Camino"
+      },
+      "status": "completed",
+      "date": "2024-12-06T18:30:00Z",
+      "valueDate": "2024-12-06T18:30:00Z"
+    },
+    {
+      "id": "txn_008",
+      "accountId": "acc_001",
+      "type": "expense",
+      "category": "food",
+      "amount": -32.50,
+      "currency": "EUR",
+      "description": "Restaurante La Plaza",
+      "reference": "POS-REST-001",
+      "counterparty": {
+        "name": "Restaurante La Plaza"
+      },
+      "status": "completed",
+      "date": "2024-12-05T21:15:00Z",
+      "valueDate": "2024-12-05T21:15:00Z"
+    },
+    {
+      "id": "txn_009",
+      "accountId": "acc_001",
+      "type": "expense",
+      "category": "health",
+      "amount": -25.00,
+      "currency": "EUR",
+      "description": "Farmacia",
+      "reference": "POS-FARM-001",
+      "counterparty": {
+        "name": "Farmacia Central"
+      },
+      "status": "completed",
+      "date": "2024-12-04T12:00:00Z",
+      "valueDate": "2024-12-04T12:00:00Z"
+    },
+    {
+      "id": "txn_010",
+      "accountId": "acc_001",
+      "type": "income",
+      "category": "other",
+      "amount": 150.00,
+      "currency": "EUR",
+      "description": "Reembolso Seguro",
+      "reference": "REIMB-001",
+      "counterparty": {
+        "name": "Seguros Protección S.A.",
+        "account": "ES34 0128 1234 5678 9012 3456"
+      },
+      "status": "completed",
+      "date": "2024-12-02T10:00:00Z",
+      "valueDate": "2024-12-02T10:00:00Z"
+    }
+  ],
+  "cards": [
+    {
+      "id": "card_001",
+      "userId": "usr_001",
+      "accountId": "acc_001",
+      "type": "debit",
+      "brand": "visa",
+      "number": "4532********1234",
+      "lastFourDigits": "1234",
+      "expiryDate": "12/27",
+      "holderName": "CARLOS MENDEZ GARCIA",
+      "status": "active",
+      "isContactless": true,
+      "isVirtual": false,
+      "limits": {
+        "daily": {
+          "purchases": 3000,
+          "withdrawals": 600,
+          "online": 2000
+        },
+        "monthly": {
+          "purchases": 15000,
+          "withdrawals": 3000,
+          "online": 10000
+        }
+      },
+      "settings": {
+        "onlinePurchases": true,
+        "internationalPurchases": true,
+        "atmWithdrawals": true,
+        "contactlessPayments": true
+      },
+      "createdAt": "2023-01-15T10:00:00Z"
+    },
+    {
+      "id": "card_002",
+      "userId": "usr_001",
+      "accountId": "acc_001",
+      "type": "credit",
+      "brand": "mastercard",
+      "number": "5425********5678",
+      "lastFourDigits": "5678",
+      "expiryDate": "06/26",
+      "holderName": "CARLOS MENDEZ GARCIA",
+      "status": "active",
+      "isContactless": true,
+      "isVirtual": false,
+      "creditLimit": 5000,
+      "availableCredit": 4250.50,
+      "limits": {
+        "daily": {
+          "purchases": 5000,
+          "withdrawals": 300,
+          "online": 3000
+        },
+        "monthly": {
+          "purchases": 5000,
+          "withdrawals": 1500,
+          "online": 5000
+        }
+      },
+      "settings": {
+        "onlinePurchases": true,
+        "internationalPurchases": true,
+        "atmWithdrawals": true,
+        "contactlessPayments": true
+      },
+      "createdAt": "2023-06-01T14:00:00Z"
+    },
+    {
+      "id": "card_003",
+      "userId": "usr_001",
+      "accountId": "acc_001",
+      "type": "debit",
+      "brand": "visa",
+      "number": "4532********9012",
+      "lastFourDigits": "9012",
+      "expiryDate": "03/28",
+      "holderName": "CARLOS MENDEZ GARCIA",
+      "status": "active",
+      "isContactless": true,
+      "isVirtual": true,
+      "limits": {
+        "daily": {
+          "purchases": 1000,
+          "withdrawals": 0,
+          "online": 1000
+        },
+        "monthly": {
+          "purchases": 5000,
+          "withdrawals": 0,
+          "online": 5000
+        }
+      },
+      "settings": {
+        "onlinePurchases": true,
+        "internationalPurchases": true,
+        "atmWithdrawals": false,
+        "contactlessPayments": false
+      },
+      "createdAt": "2024-01-10T09:30:00Z"
+    }
+  ],
+  "transfers": [
+    {
+      "id": "trf_001",
+      "userId": "usr_001",
+      "fromAccountId": "acc_001",
+      "toAccount": {
+        "iban": "ES76 2100 0418 4102 0005 1333",
+        "name": "Ahorro Vacaciones",
+        "bank": "SendellBank"
+      },
+      "amount": 500.00,
+      "currency": "EUR",
+      "concept": "Ahorro mensual",
+      "type": "internal",
+      "status": "completed",
+      "scheduledDate": null,
+      "executedAt": "2024-12-08T14:20:00Z",
+      "createdAt": "2024-12-08T14:18:00Z"
+    },
+    {
+      "id": "trf_002",
+      "userId": "usr_001",
+      "fromAccountId": "acc_001",
+      "toAccount": {
+        "iban": "ES12 0049 1234 5678 9012 3456",
+        "name": "Ana García López",
+        "bank": "Otro Banco"
+      },
+      "amount": 200.00,
+      "currency": "EUR",
+      "concept": "Pago cena cumpleaños",
+      "type": "national",
+      "status": "completed",
+      "scheduledDate": null,
+      "executedAt": "2024-12-01T11:30:00Z",
+      "createdAt": "2024-12-01T11:28:00Z"
+    }
+  ],
+  "beneficiaries": [
+    {
+      "id": "ben_001",
+      "userId": "usr_001",
+      "alias": "Ana García",
+      "name": "Ana García López",
+      "iban": "ES12 0049 1234 5678 9012 3456",
+      "bank": "Otro Banco",
+      "isFavorite": true,
+      "createdAt": "2024-01-20T10:00:00Z"
+    },
+    {
+      "id": "ben_002",
+      "userId": "usr_001",
+      "alias": "Casero",
+      "name": "Inmobiliaria Centro S.L.",
+      "iban": "ES45 0182 9876 5432 1098 7654",
+      "bank": "Banco Nacional",
+      "isFavorite": true,
+      "createdAt": "2023-02-01T09:00:00Z"
+    },
+    {
+      "id": "ben_003",
+      "userId": "usr_001",
+      "alias": "Mamá",
+      "name": "Elena García Ruiz",
+      "iban": "ES78 2100 5678 9012 3456 7890",
+      "bank": "SendellBank",
+      "isFavorite": true,
+      "createdAt": "2023-01-20T15:00:00Z"
+    }
+  ],
+  "notifications": [
+    {
+      "id": "notif_001",
+      "userId": "usr_001",
+      "type": "transaction",
+      "title": "Pago recibido",
+      "message": "Has recibido una transferencia de 2.850,00 €",
+      "read": false,
+      "createdAt": "2024-12-15T09:00:00Z"
+    },
+    {
+      "id": "notif_002",
+      "userId": "usr_001",
+      "type": "security",
+      "title": "Nuevo inicio de sesión",
+      "message": "Se ha detectado un inicio de sesión desde un nuevo dispositivo",
+      "read": true,
+      "createdAt": "2024-12-14T08:30:00Z"
+    },
+    {
+      "id": "notif_003",
+      "userId": "usr_001",
+      "type": "alert",
+      "title": "Límite de gasto",
+      "message": "Has alcanzado el 80% de tu límite de gasto mensual",
+      "read": false,
+      "createdAt": "2024-12-13T16:00:00Z"
+    }
+  ],
+  "sessions": []
+}

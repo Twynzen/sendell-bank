@@ -1,0 +1,99 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   SENDELLBANK DARK THEME
+   Modern dark theme for low-light environments
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+[data-theme="dark"] {
+  /* Primary Colors - Adjusted for dark theme */
+  --lb-color-primary-500: #64b5f6;
+  --lb-color-primary-600: #42a5f5;
+  --lb-color-primary-700: #2196f3;
+
+  /* Surface Colors */
+  --lb-color-background: #0f0f1a;
+  --lb-color-surface: #1a1a2e;
+  --lb-color-surface-variant: #252542;
+  --lb-color-surface-elevated: #2d2d4a;
+
+  /* Neutral adjustments */
+  --lb-color-neutral-0: #0f0f1a;
+  --lb-color-neutral-50: #1a1a2e;
+  --lb-color-neutral-100: #252542;
+  --lb-color-neutral-200: #2d2d4a;
+  --lb-color-neutral-300: #3d3d5c;
+  --lb-color-neutral-400: #5c5c7a;
+  --lb-color-neutral-500: #8888a0;
+  --lb-color-neutral-600: #a0a0b8;
+  --lb-color-neutral-700: #c8c8d8;
+  --lb-color-neutral-800: #e0e0ea;
+  --lb-color-neutral-900: #f5f5f8;
+
+  /* Text Colors */
+  --lb-color-text-primary: #f5f5f8;
+  --lb-color-text-secondary: #c8c8d8;
+  --lb-color-text-tertiary: #a0a0b8;
+  --lb-color-text-disabled: #5c5c7a;
+  --lb-color-text-inverse: #1a1a2e;
+
+  /* Border Colors */
+  --lb-color-border: #3d3d5c;
+  --lb-color-border-light: #2d2d4a;
+  --lb-color-border-dark: #5c5c7a;
+
+  /* Interactive States */
+  --lb-color-hover: rgba(100, 181, 246, 0.12);
+  --lb-color-active: rgba(100, 181, 246, 0.18);
+  --lb-color-selected: rgba(100, 181, 246, 0.24);
+
+  /* Semantic colors adjusted for dark */
+  --lb-color-success: #4caf50;
+  --lb-color-success-light: rgba(76, 175, 80, 0.15);
+  --lb-color-warning: #ffb74d;
+  --lb-color-warning-light: rgba(255, 183, 77, 0.15);
+  --lb-color-error: #f44336;
+  --lb-color-error-light: rgba(244, 67, 54, 0.15);
+  --lb-color-info: #29b6f6;
+  --lb-color-info-light: rgba(41, 182, 246, 0.15);
+
+  /* Shadows for Dark Theme */
+  --lb-shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --lb-shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.4);
+  --lb-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+  --lb-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+  --lb-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+  --lb-shadow-card: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --lb-shadow-dropdown: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --lb-shadow-modal: 0 16px 48px rgba(0, 0, 0, 0.5);
+
+  /* Gradients */
+  --lb-gradient-primary: linear-gradient(135deg, #42a5f5 0%, #1e88e5 100%);
+  --lb-gradient-header: linear-gradient(135deg, #1a1a2e 0%, #252542 100%);
+  --lb-gradient-card: linear-gradient(180deg, #1a1a2e 0%, #252542 100%);
+
+  /* Input specific */
+  --lb-input-background: #252542;
+  --lb-input-border: #3d3d5c;
+  --lb-input-placeholder: #8888a0;
+
+  /* Card specific */
+  --lb-card-background: #1a1a2e;
+  --lb-card-border: #3d3d5c;
+
+  /* Sidebar specific */
+  --lb-sidebar-background: #1a1a2e;
+  --lb-sidebar-item-hover: #252542;
+  --lb-sidebar-item-active: rgba(100, 181, 246, 0.15);
+
+  /* Table specific */
+  --lb-table-header-background: #252542;
+  --lb-table-row-hover: #2d2d4a;
+  --lb-table-border: #3d3d5c;
+
+  /* Scrollbar */
+  --lb-scrollbar-track: #1a1a2e;
+  --lb-scrollbar-thumb: #3d3d5c;
+  --lb-scrollbar-thumb-hover: #5c5c7a;
+
+  /* Focus Ring */
+  --lb-ring-color: rgba(100, 181, 246, 0.5);
+}
