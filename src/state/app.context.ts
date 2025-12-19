@@ -4,6 +4,8 @@
    ═══════════════════════════════════════════════════════════════════════════ */
 
 import { createContext } from '@lit/context';
+import { ContextProvider, ContextConsumer } from '@lit/context';
+import { ReactiveController, ReactiveControllerHost } from 'lit';
 import type { User, Account, Notification } from '../types';
 
 // ═══════════════════════════════════════════════════════════
@@ -97,131 +99,216 @@ export const initialNotificationsState: NotificationsState = {
 export const notificationsContext = createContext<NotificationsState>('notifications-context');
 
 // ═══════════════════════════════════════════════════════════
-// CONTEXT PROVIDERS MIXIN
+// CONTEXT PROVIDER CONTROLLERS
 // ═══════════════════════════════════════════════════════════
 
-import { LitElement } from 'lit';
-import { provide } from '@lit/context';
-import { property, state } from 'lit/decorators.js';
+/**
+ * User Context Provider Controller
+ * Add to your root element to provide user state to the app
+ */
+export class UserContextProvider implements ReactiveController {
+  host: ReactiveControllerHost;
+  private provider: ContextProvider<typeof userContext>;
+  private _state: UserState = { ...initialUserState };
 
-type Constructor<T = object> = new (...args: unknown[]) => T;
+  constructor(host: ReactiveControllerHost) {
+    this.host = host;
+    host.addController(this);
+    this.provider = new ContextProvider(host as HTMLElement, {
+      context: userContext,
+      initialValue: this._state,
+    });
+  }
 
-export function withUserContext<T extends Constructor<LitElement>>(Base: T) {
-  return class extends Base {
-    @provide({ context: userContext })
-    @state()
-    userState: UserState = { ...initialUserState };
+  hostConnected() {}
 
-    updateUserState(updates: Partial<UserState>) {
-      this.userState = { ...this.userState, ...updates };
-    }
+  get state(): UserState {
+    return this._state;
+  }
 
-    setUser(user: User | null, token?: string | null) {
-      this.userState = {
-        ...this.userState,
-        user,
-        token: token ?? null,
-        isAuthenticated: !!user,
-      };
-    }
+  setState(updates: Partial<UserState>) {
+    this._state = { ...this._state, ...updates };
+    this.provider.setValue(this._state);
+    this.host.requestUpdate();
+  }
 
-    clearUser() {
-      this.userState = { ...initialUserState };
-    }
-  };
+  setUser(user: User | null, token?: string | null) {
+    this.setState({
+      user,
+      token: token ?? null,
+      isAuthenticated: !!user,
+    });
+  }
+
+  clearUser() {
+    this.setState({ ...initialUserState });
+  }
 }
 
-export function withAccountsContext<T extends Constructor<LitElement>>(Base: T) {
-  return class extends Base {
-    @provide({ context: accountsContext })
-    @state()
-    accountsState: AccountsState = { ...initialAccountsState };
+/**
+ * Accounts Context Provider Controller
+ */
+export class AccountsContextProvider implements ReactiveController {
+  host: ReactiveControllerHost;
+  private provider: ContextProvider<typeof accountsContext>;
+  private _state: AccountsState = { ...initialAccountsState };
 
-    updateAccountsState(updates: Partial<AccountsState>) {
-      this.accountsState = { ...this.accountsState, ...updates };
-    }
+  constructor(host: ReactiveControllerHost) {
+    this.host = host;
+    host.addController(this);
+    this.provider = new ContextProvider(host as HTMLElement, {
+      context: accountsContext,
+      initialValue: this._state,
+    });
+  }
 
-    setAccounts(accounts: Account[]) {
-      const totalBalance = accounts.reduce((sum, acc) => sum + acc.balance, 0);
-      this.accountsState = {
-        ...this.accountsState,
-        accounts,
-        totalBalance,
-        selectedAccountId: this.accountsState.selectedAccountId || accounts[0]?.id || null,
-      };
-    }
+  hostConnected() {}
 
-    selectAccount(accountId: string) {
-      this.accountsState = {
-        ...this.accountsState,
-        selectedAccountId: accountId,
-      };
-    }
-  };
+  get state(): AccountsState {
+    return this._state;
+  }
+
+  setState(updates: Partial<AccountsState>) {
+    this._state = { ...this._state, ...updates };
+    this.provider.setValue(this._state);
+    this.host.requestUpdate();
+  }
+
+  setAccounts(accounts: Account[]) {
+    const totalBalance = accounts.reduce((sum, acc) => sum + acc.balance, 0);
+    this.setState({
+      accounts,
+      totalBalance,
+      selectedAccountId: this._state.selectedAccountId || accounts[0]?.id || null,
+    });
+  }
+
+  selectAccount(accountId: string) {
+    this.setState({ selectedAccountId: accountId });
+  }
 }
 
-export function withUIContext<T extends Constructor<LitElement>>(Base: T) {
-  return class extends Base {
-    @provide({ context: uiContext })
-    @state()
-    uiState: UIState = { ...initialUIState };
+/**
+ * UI Context Provider Controller
+ */
+export class UIContextProvider implements ReactiveController {
+  host: ReactiveControllerHost;
+  private provider: ContextProvider<typeof uiContext>;
+  private _state: UIState = { ...initialUIState };
 
-    updateUIState(updates: Partial<UIState>) {
-      this.uiState = { ...this.uiState, ...updates };
-    }
+  constructor(host: ReactiveControllerHost) {
+    this.host = host;
+    host.addController(this);
+    this.provider = new ContextProvider(host as HTMLElement, {
+      context: uiContext,
+      initialValue: this._state,
+    });
+  }
 
-    setTheme(theme: 'light' | 'dark' | 'system') {
-      this.uiState = { ...this.uiState, theme };
-      document.documentElement.setAttribute('data-theme', theme === 'system'
-        ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+  hostConnected() {}
+
+  get state(): UIState {
+    return this._state;
+  }
+
+  setState(updates: Partial<UIState>) {
+    this._state = { ...this._state, ...updates };
+    this.provider.setValue(this._state);
+    this.host.requestUpdate();
+  }
+
+  setTheme(theme: 'light' | 'dark' | 'system') {
+    this.setState({ theme });
+    document.documentElement.setAttribute(
+      'data-theme',
+      theme === 'system'
+        ? window.matchMedia('(prefers-color-scheme: dark)').matches
+          ? 'dark'
+          : 'light'
         : theme
-      );
-      localStorage.setItem('theme', theme);
-    }
+    );
+    localStorage.setItem('theme', theme);
+  }
 
-    toggleSidebar() {
-      this.uiState = {
-        ...this.uiState,
-        sidebarOpen: !this.uiState.sidebarOpen,
-      };
-    }
+  toggleSidebar() {
+    this.setState({ sidebarOpen: !this._state.sidebarOpen });
+  }
 
-    setLoading(isLoading: boolean, message = '') {
-      this.uiState = {
-        ...this.uiState,
-        isLoading,
-        loadingMessage: message,
-      };
-    }
-  };
+  setLoading(isLoading: boolean, message = '') {
+    this.setState({ isLoading, loadingMessage: message });
+  }
 }
 
 // ═══════════════════════════════════════════════════════════
-// CONTEXT CONSUMERS
+// CONTEXT CONSUMER CONTROLLERS
 // ═══════════════════════════════════════════════════════════
 
-import { consume } from '@lit/context';
+/**
+ * User Context Consumer Controller
+ * Add to components that need to read user state
+ */
+export class UserContextConsumer implements ReactiveController {
+  host: ReactiveControllerHost;
+  private consumer: ContextConsumer<typeof userContext, ReactiveControllerHost>;
 
-export function consumeUserContext<T extends Constructor<LitElement>>(Base: T) {
-  return class extends Base {
-    @consume({ context: userContext, subscribe: true })
-    @property({ attribute: false })
-    userState?: UserState;
-  };
+  constructor(host: ReactiveControllerHost) {
+    this.host = host;
+    host.addController(this);
+    this.consumer = new ContextConsumer(host, {
+      context: userContext,
+      subscribe: true,
+    });
+  }
+
+  hostConnected() {}
+
+  get value(): UserState | undefined {
+    return this.consumer.value;
+  }
 }
 
-export function consumeAccountsContext<T extends Constructor<LitElement>>(Base: T) {
-  return class extends Base {
-    @consume({ context: accountsContext, subscribe: true })
-    @property({ attribute: false })
-    accountsState?: AccountsState;
-  };
+/**
+ * Accounts Context Consumer Controller
+ */
+export class AccountsContextConsumer implements ReactiveController {
+  host: ReactiveControllerHost;
+  private consumer: ContextConsumer<typeof accountsContext, ReactiveControllerHost>;
+
+  constructor(host: ReactiveControllerHost) {
+    this.host = host;
+    host.addController(this);
+    this.consumer = new ContextConsumer(host, {
+      context: accountsContext,
+      subscribe: true,
+    });
+  }
+
+  hostConnected() {}
+
+  get value(): AccountsState | undefined {
+    return this.consumer.value;
+  }
 }
 
-export function consumeUIContext<T extends Constructor<LitElement>>(Base: T) {
-  return class extends Base {
-    @consume({ context: uiContext, subscribe: true })
-    @property({ attribute: false })
-    uiState?: UIState;
-  };
+/**
+ * UI Context Consumer Controller
+ */
+export class UIContextConsumer implements ReactiveController {
+  host: ReactiveControllerHost;
+  private consumer: ContextConsumer<typeof uiContext, ReactiveControllerHost>;
+
+  constructor(host: ReactiveControllerHost) {
+    this.host = host;
+    host.addController(this);
+    this.consumer = new ContextConsumer(host, {
+      context: uiContext,
+      subscribe: true,
+    });
+  }
+
+  hostConnected() {}
+
+  get value(): UIState | undefined {
+    return this.consumer.value;
+  }
 }

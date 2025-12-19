@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "api": "node server/server.js",
+    "api": "node server/server.cjs",
     "dev:all": "concurrently \"npm run dev\" \"npm run api\"",
     "start": "npm run dev:all",
     "test": "web-test-runner --coverage",
